@@ -70,7 +70,7 @@ data "aws_iam_policy_document" "velero" {
 
 module "velero" {
   source         = "aws-ia/eks-blueprints-addon/aws"
-  version        = "1.1.1"
+  version        = "1.21.0"
   create_release = true
 
   # https://github.com/vmware-tanzu/helm-charts/blob/main/charts/velero/Chart.yaml
@@ -79,7 +79,7 @@ module "velero" {
   namespace        = local.velero_namespace
   create_namespace = try(var.velero.create_namespace, true)
   chart            = try(var.velero.chart, "velero")
-  chart_version    = try(var.velero.chart_version, "5.3.0") # TODO - 4.0.0 is out
+  chart_version    = try(var.velero.chart_version, "8.7.1")
   repository       = try(var.velero.repository, "https://vmware-tanzu.github.io/helm-charts/")
   values           = try(var.velero.values, [])
 
@@ -115,7 +115,7 @@ module "velero" {
       name  = "initContainers"
       value = <<-EOT
         - name: velero-plugin-for-aws
-          image: velero/velero-plugin-for-aws:v1.9.0
+          image: velero/velero-plugin-for-aws:v1.11.1
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - mountPath: /target
