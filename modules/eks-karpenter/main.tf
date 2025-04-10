@@ -55,6 +55,7 @@ resource "helm_release" "karpenter-crd" {
   name             = "karpenter"
   repository       = "oci://public.ecr.aws/karpenter"
   chart            = "karpenter-crd"
+  upgrade_install  = true
   timeout          = var.addon_timeout
   version          = var.addon_version
   wait             = false
@@ -75,7 +76,7 @@ resource "helm_release" "karpenter-crd" {
     value = "8443"
   }
 
-  depends_on = [resource.helm_release.karpenter]
+  depends_on = [module.karpenter]
 }
 
 resource "aws_iam_policy" "karpenter_spot_permission" {
