@@ -70,7 +70,7 @@ data "aws_iam_policy_document" "velero" {
 
 module "velero" {
   source         = "aws-ia/eks-blueprints-addon/aws"
-  version        = "1.21.0"
+  version        = "1.1.1"
   create_release = true
 
   # https://github.com/vmware-tanzu/helm-charts/blob/main/charts/velero/Chart.yaml
