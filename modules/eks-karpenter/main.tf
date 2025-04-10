@@ -49,7 +49,7 @@ resource "helm_release" "karpenter" {
 
   depends_on = [module.karpenter]
 }
-resource "helm_release-crd" "karpenter-crd" {
+resource "helm_release" "karpenter-crd" {
   namespace        = "karpenter"
   create_namespace = true
   name             = "karpenter"
@@ -75,7 +75,7 @@ resource "helm_release-crd" "karpenter-crd" {
     value = "8443"
   }
 
-  depends_on = [module.karpenter]
+  depends_on = [resource.helm_release.karpenter]
 }
 
 resource "aws_iam_policy" "karpenter_spot_permission" {
