@@ -20,7 +20,7 @@ module "velero" {
   s3_backup_arn     = var.addons_velero_bucket_arn
   oidc_provider_arn = var.cluster_oidc_provider_arn
   timeout           = var.addons_helm_timeout
-  addon_version     = addons_velero_version
+#  addon_version     = addons_velero_version
 
   depends_on = [
     module.karpenter.karpenter_default_nodepool,
