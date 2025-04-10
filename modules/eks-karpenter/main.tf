@@ -49,7 +49,7 @@ resource "helm_release" "karpenter" {
 
   depends_on = [module.karpenter]
 }
-resource "helm_release" "karpenter-crd" {
+resource "helm_release-crd" "karpenter-crd" {
   namespace        = "karpenter"
   create_namespace = true
   name             = "karpenter"
