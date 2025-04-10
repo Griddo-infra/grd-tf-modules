@@ -49,6 +49,35 @@ resource "helm_release" "karpenter" {
 
   depends_on = [module.karpenter]
 }
+resource "helm_release" "karpenter-crd" {
+  namespace        = "karpenter"
+  create_namespace = true
+  name             = "karpenter"
+  repository       = "oci://public.ecr.aws/karpenter"
+  chart            = "karpenter-crd"
+  timeout          = var.addon_timeout
+  version          = var.addon_version
+  wait             = false
+  wait_for_jobs    = false
+
+  set {
+    name  = "webhook.enabled"
+    value = true
+  }
+
+  set {
+    name  = "webhook.serviceName"
+    value = "karpenter"
+  }
+
+  set {
+    name  = "swebhook.port"
+    value = "8443"
+  }
+
+  depends_on = [module.karpenter]
+}
+
 resource "aws_iam_policy" "karpenter_spot_permission" {
   name        = "KarpenterSpotPermission"
   description = "allow Karpenter to create spot instances"

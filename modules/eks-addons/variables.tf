@@ -30,29 +30,29 @@ variable "addons_helm_timeout" {
 variable "addons_karpenter_version" {
   type        = string
   description = "Karpenter Helm Chart version"
-  default     = "0.37.6"
+  default     = "1.3.3"
 }
 
 variable "addons_argocd_version" {
   type        = string
   description = "ArgoCD Helm Chart version"
-  default     = "5.46.7"
+  default     = "5.55.0"
 }
 
 variable "addons_argocd_enabled" {
   type        = bool
-  default     = false
+  default     = true
   description = "if true ArgoCD is enabled"
 }
 
 variable "addons_external_secrets_version" {
   type    = string
-  default = "0.9.11"
+  default = "0.15.1"
 }
 
 variable "addons_metrics_server_version" {
   type    = string
-  default = "3.12.0"
+  default = "3.12.2"
 }
 
 variable "addons_external_dns_version" {
@@ -64,7 +64,7 @@ variable "addons_external_dns_version" {
 variable "addons_argo_events_version" {
   type        = string
   description = "Argo Events Helm Chart version"
-  default     = "2.4.1"
+  default     = "2.4.3"
 }
 
 variable "addons_argo_events_enabled" {
@@ -76,7 +76,7 @@ variable "addons_argo_events_enabled" {
 variable "addons_aws_load_balancer_version" {
   type        = string
   description = "EKS AWS Load Balancer Helm Chart version"
-  default     = "1.6.2"
+  default     = "1.7.1"
 }
 
 variable "addons_reloader_version" {
@@ -88,7 +88,7 @@ variable "addons_reloader_version" {
 variable "addons_cert_manager_version" {
   type        = string
   description = "Cert Manager operator Helm Chart version"
-  default     = "1.13.3"
+  default     = "1.14.3"
 }
 
 variable "addons_cert_manager_enabled" {
@@ -105,8 +105,8 @@ variable "addons_velero_enabled" {
 
 variable "addons_velero_version" {
   type        = string
-  description = "Velervar.cluster_nameo Helm Chart version"
-  default     = "4.0.3"
+  description = "Velero Helm Chart version"
+  default     = "3.2.0"
 }
 
 variable "addons_velero_bucket_arn" {

@@ -22,10 +22,10 @@ module "velero" {
   timeout           = var.addons_helm_timeout
 #  addon_version     = addons_velero_version
 
-  depends_on = [
-    module.karpenter.karpenter_default_nodepool,
-    module.karpenter.karpenter_default_nodeclass,
-  ]
+#  depends_on = [
+#    module.karpenter.karpenter_default_nodepool,
+#    module.karpenter.karpenter_default_nodeclass,
+#  ]
 }
 
 ########################################
@@ -41,10 +41,10 @@ resource "helm_release" "reloader" {
   version          = var.addons_reloader_version
   timeout          = var.addons_helm_timeout
 
-  depends_on = [
-    module.karpenter.karpenter_default_nodepool,
-    module.karpenter.karpenter_default_nodeclass,
-  ]
+#  depends_on = [
+#    module.karpenter.karpenter_default_nodepool,
+#    module.karpenter.karpenter_default_nodeclass,
+#  ]
 }
 
 ########################################
@@ -117,8 +117,8 @@ module "eks_addons_extra" {
     timeout       = var.addons_helm_timeout
   }
 
-  depends_on = [
-    module.karpenter.karpenter_default_nodepool,
-    module.karpenter.karpenter_default_nodeclass,
-  ]
+#  depends_on = [
+#    module.karpenter.karpenter_default_nodepool,
+#    module.karpenter.karpenter_default_nodeclass,
+#  ]
 }
