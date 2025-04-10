@@ -4,7 +4,7 @@ module "karpenter" {
   cluster_name           = var.cluster_name
   irsa_oidc_provider_arn = var.cluster_oidc_provider_arn
   enable_irsa            = true
-#  enable_v1_permissions  = true
+  enable_v1_permissions  = true
 
   node_iam_role_additional_policies = {
     AmazonSSMManagedInstanceCore = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
