@@ -30,7 +30,7 @@ variable "addons_helm_timeout" {
 variable "addons_karpenter_version" {
   type        = string
   description = "Karpenter Helm Chart version"
-  default     = "v0.34.0"
+  default     = "v0.37.6"
 }
 
 variable "addons_argocd_version" {
