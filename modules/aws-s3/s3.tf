@@ -1,6 +1,6 @@
 module "velero_backup_s3_bucket" {
   source        = "terraform-aws-modules/s3-bucket/aws"
-  version       = "4.6.0"
+  version       = "3.15.1"
   bucket        = var.name
   acl           = "private"
   create_bucket = var.create
