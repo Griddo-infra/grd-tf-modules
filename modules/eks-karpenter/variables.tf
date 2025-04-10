@@ -20,8 +20,3 @@ variable "addon_timeout" {
   description = "helm release timout (sec)"
   default     = 60
 }
-
-variable "karpenter_volumeSize" {
-  type        = string
-  description = "Nodeclass VolumeSize"
-}
