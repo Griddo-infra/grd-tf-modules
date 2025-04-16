@@ -39,19 +39,29 @@ resource "helm_release" "karpenter" {
   
   set {
     name  = "podAnnotations.prometheus.io\\scrape"
-    value = "true"
+    value = true
   }
   
   set {
     name  = "podAnnotations.prometheus.io\\path"
-    value = "/data/metrics"
+    value = "/metrics"
   }
   
   set {
     name  = "podAnnotations.prometheus.io\\port"
-    value = "9090"
+    value = "8080"
   }
   
+  set {
+    name  = "serviceMonitor.enabled"
+    value = true
+  }
+
+  set {
+    name  = "controller.metrics.port"
+    value = "8080"
+  }
+
   set {
     name  = "settings.aws.clusterEndpoint"
     value = var.cluster_endpoint
