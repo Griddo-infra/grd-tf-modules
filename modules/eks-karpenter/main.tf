@@ -36,10 +36,30 @@ resource "helm_release" "karpenter" {
     name  = "serviceAccount.annotations.eks\\.amazonaws\\.com/role-arn"
     value = module.karpenter.iam_role_arn
   }
-
+  
+  set {
+    name  = "podAnnotations.prometheus.io\\scrape"
+    value = true
+  }
+  
+  set {
+    name  = "podAnnotations.prometheus.io\\path"
+    value = "/data/metrics"
+  }
+  
+  set {
+    name  = "podAnnotations.prometheus.io\\port"
+    value = "9090"
+  }
+  
   set {
     name  = "serviceMonitor.enabled"
     value = true
+  }
+
+  set {
+    name  = "controller.metrics.port"
+    value = "9090"
   }
 
   set {
