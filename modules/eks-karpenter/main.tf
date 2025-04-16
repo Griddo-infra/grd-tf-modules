@@ -40,6 +40,7 @@ resource "helm_release" "karpenter" {
   set {
     name  = "podAnnotations.prometheus\\.io/scrape"
     value = "true"
+  }
   
   set {
     name  = "podAnnotations.prometheus\\.io/path"
