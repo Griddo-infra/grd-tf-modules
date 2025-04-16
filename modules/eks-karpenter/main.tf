@@ -39,8 +39,7 @@ resource "helm_release" "karpenter" {
   
   set {
     name  = "podAnnotations.prometheus\\.io/scrape"
-    value = true
-  }
+    value = "true"
   
   set {
     name  = "podAnnotations.prometheus\\.io/path"
@@ -50,6 +49,8 @@ resource "helm_release" "karpenter" {
   set {
     name  = "podAnnotations.prometheus\\.io/port"
     value = "8080"
+    type  = "auto"
+
   }
 
   set {
