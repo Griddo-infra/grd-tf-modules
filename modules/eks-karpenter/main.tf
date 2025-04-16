@@ -39,7 +39,7 @@ resource "helm_release" "karpenter" {
   
   set {
     name  = "podAnnotations.prometheus.io\\scrape"
-    value = true
+    value = "true"
   }
   
   set {
@@ -55,11 +55,6 @@ resource "helm_release" "karpenter" {
   set {
     name  = "serviceMonitor.enabled"
     value = true
-  }
-
-  set {
-    name  = "controller.metrics.port"
-    value = "9090"
   }
 
   set {
