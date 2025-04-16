@@ -36,23 +36,6 @@ resource "helm_release" "karpenter" {
     name  = "serviceAccount.annotations.eks\\.amazonaws\\.com/role-arn"
     value = module.karpenter.iam_role_arn
   }
-  
-  set {
-    name  = "podAnnotations.prometheus\\.io/scrape"
-    value = "true"
-  }
-  
-  set {
-    name  = "podAnnotations.prometheus\\.io/path"
-    value = "/metrics"
-  }
-  
-  set {
-    name  = "podAnnotations.prometheus\\.io/port"
-    value = "8080"
-    type  = "auto"
-
-  }
 
   set {
     name  = "settings.aws.clusterEndpoint"
