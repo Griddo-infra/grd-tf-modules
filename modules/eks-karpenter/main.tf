@@ -53,11 +53,6 @@ resource "helm_release" "karpenter" {
   }
   
   set {
-    name  = "serviceMonitor.enabled"
-    value = true
-  }
-
-  set {
     name  = "settings.aws.clusterEndpoint"
     value = var.cluster_endpoint
   }
