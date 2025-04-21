@@ -86,7 +86,7 @@ module "cluster_eks" {
             delete_on_termination = true
           }
         }
-      }      
+      }
       labels = {
         "organization"     = var.organization
         "environment"      = var.environment
