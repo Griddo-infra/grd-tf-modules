@@ -33,7 +33,7 @@ data "aws_iam_policy_document" "assume_role_policy_document" {
   }
 }
 
-resource "aws_iam_role" "kube_admin_role" {
+resource "aws_iam_role_policy" "kube_admin_role" {
   name               = "${var.cluster_name}-kube-admin"
   assume_role_policy = data.aws_iam_policy_document.assume_role_policy_document.json
 
