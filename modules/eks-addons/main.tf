@@ -53,7 +53,7 @@ resource "helm_release" "reloader" {
 
 module "eks_addons_extra" {
   source  = "aws-ia/eks-blueprints-addons/aws"
-  version = "1.20.0"
+  version = "1.21.0"
 
   cluster_name      = var.cluster_name
   cluster_endpoint  = var.cluster_endpoint
@@ -116,9 +116,4 @@ module "eks_addons_extra" {
     chart_version = coalesce(var.addons_aws_efs_csi_driver_version)
     timeout       = var.addons_helm_timeout
   }
-
-#  depends_on = [
-#    module.karpenter.karpenter_default_nodepool,
-#    module.karpenter.karpenter_default_nodeclass,
-#  ]
 }
