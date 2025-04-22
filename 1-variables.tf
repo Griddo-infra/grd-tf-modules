@@ -1,6 +1,6 @@
 variable "cluster_cidr" {
   type        = string
-  default     = "10.0.0.0/16"
+  default     = "10.1.0.0/16"
   description = "VPC cidr"
 }
 
@@ -30,7 +30,7 @@ variable "inception_max_size" {
 variable "inception_types" {
   type        = list(string)
   description = "list of types of initial cluster node group instances"
-  default     = ["t3a.medium"]
+  default     = ["t4g.medium"]
 }
 
 variable "inception_storage_size" {
@@ -104,7 +104,7 @@ variable "cluster_name" {
 variable "cluster_kubernetes_version" {
   type        = string
   description = "Cluster kubernetes version"
-  default     = "1.31"
+  default     = "1.32"
 }
 
 variable "cluster_enable_snapshotter" {
@@ -136,15 +136,15 @@ variable "eks_coredns_ver" {
 
 variable "eks_kube_proxy_ver" {
   description = "Kube-Proxy add-on version"
-  default     = "v1.31.3-eksbuild.2"
+  default     = "v1.32.0-eksbuild.2"
 }
 
 variable "eks_vpc_cni_ver" {
   description = "Kube-Proxy add-on version"
-  default     = "v1.19.2-eksbuild.5"
+  default     = "v1.19.3-eksbuild.1"
 }
 
 variable "eks_ebs_csi_ver" {
   description = "Kube-Proxy add-on version"
-  default     = "v1.39.0-eksbuild.1"
+  default     = "v1.41.0-eksbuild.1"
 }

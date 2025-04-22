@@ -66,7 +66,7 @@ module "cluster_eks" {
       min_size        = "${var.inception_min_size}"
       public_subnets  = module.vpc.public_subnets
       private_subnets = module.vpc.private_subnets
-      ami_type        = "BOTTLEROCKET_x86_64"
+      ami_type        = "BOTTLEROCKET_ARM_64"
       block_device_mappings = {
         xvda = {
           device_name = "/dev/xvda"

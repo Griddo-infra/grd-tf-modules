@@ -30,7 +30,7 @@ variable "addons_helm_timeout" {
 variable "addons_karpenter_version" {
   type        = string
   description = "Karpenter Helm Chart version"
-  default     = "1.3.3"
+  default     = "1.4.0"
 }
 
 variable "addons_argocd_version" {
@@ -47,7 +47,7 @@ variable "addons_argocd_enabled" {
 
 variable "addons_external_secrets_version" {
   type    = string
-  default = "0.15.1"
+  default = "0.16.1"
 }
 
 variable "addons_metrics_server_version" {
@@ -82,13 +82,13 @@ variable "addons_aws_load_balancer_version" {
 variable "addons_reloader_version" {
   type        = string
   description = "Stakater Reloader Helm Chart version"
-  default     = "1.0.56"
+  default     = "1.4.1"
 }
 
 variable "addons_cert_manager_version" {
   type        = string
   description = "Cert Manager operator Helm Chart version"
-  default     = "1.14.3"
+  default     = "1.17.1"
 }
 
 variable "addons_cert_manager_enabled" {
@@ -106,7 +106,7 @@ variable "addons_velero_enabled" {
 variable "addons_velero_version" {
   type        = string
   description = "Velero Helm Chart version"
-  default     = "3.2.0"
+  default     = "9.0.0"
 }
 
 variable "addons_velero_bucket_arn" {
