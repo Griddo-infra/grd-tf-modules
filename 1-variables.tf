@@ -72,11 +72,13 @@ variable "cluster_node_security_group_additional_rules" {
 variable "cluster_private_subnets" {
   type        = list(string)
   description = "VPC private subnets. Normally used by nodes and pods"
+  default     = ["10.1.0.0/18", "10.1.64.0/18", "10.1.128.0/18"]
 }
 
 variable "cluster_public_subnets" {
   type        = list(string)
   description = "VPC public subnets. Normally used by the AWS load balancers to expose services"
+  default     = ["10.1.192.0/24", "10.1.193.0/24", "10.1.194.0/24"]
 }
 
 variable "cluster_domains" {
