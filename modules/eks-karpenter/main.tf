@@ -55,8 +55,8 @@ resource "helm_release" "karpenter" {
   depends_on = [module.karpenter]
 }
 
-resource "aws_iam_policy" "karpenter_spot_permission" {
-  name        = "KarpenterSpotPermission"
+resource "aws_iam_policy" "karpenter_spot_instances" {
+  name        = "KarpenterSpotInstances"
   description = "allow Karpenter to create spot instances"
 
   policy = jsonencode({
@@ -78,5 +78,5 @@ resource "aws_iam_policy" "karpenter_spot_permission" {
 
 resource "aws_iam_role_policy_attachment" "attach_policy" {
   role       = module.karpenter.iam_role_name
-  policy_arn = aws_iam_policy.karpenter_spot_permission.arn
+  policy_arn = aws_iam_policy.karpenter_spot_instances.arn
 }
