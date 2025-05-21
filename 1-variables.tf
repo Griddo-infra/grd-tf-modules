@@ -36,7 +36,7 @@ variable "inception_types" {
 variable "inception_storage_size" {
   type        = number
   description = "Size for storage volume in inception node group in GB"
-  default     = 40
+  default     = 20
 }
 
 variable "cluster_public_endpoint_enabled" {
